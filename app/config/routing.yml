@@ -1,0 +1,3 @@
+kita_blog:
+    resource: "@KitaBlogBundle/Resources/config/routing.yml"
+    prefix:   /blog

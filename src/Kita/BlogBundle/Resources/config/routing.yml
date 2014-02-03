@@ -1,0 +1,29 @@
+kitablog_accueil:
+  path: /{page}
+  defaults: { _controller: KitaBlogBundle:Blog:index, page: 1 }
+  requirements:
+    page: \d*
+  
+kitablog_voir:
+  path: /article/{id}
+  defaults: { _controller: KitaBlogBundle:Blog:voir }
+  requirements:
+    id: \d*
+
+kitablog_ajouter:
+  path: /ajouter
+  defaults: { _controller: KitaBlogBundle:Blog:ajouter }
+  
+kitablog_supprimer:
+  path: /supprimer/{id}
+  defaults: { _controller: KitaBlogBundle:Blog:supprimer }
+  requirements:
+    id: \d*
+    
+kitablog_modifier:
+  path: /modifier/{id}
+  defaults: { _controller: KitaBlogBundle:Blog:modifier }
+  requirements:
+    id: \d*
+
+  
