@@ -1,12 +1,6 @@
-parameters:
-#    kita_blog.example.class: Kita\BlogBundle\Example
-
-services:
-#    kita_blog.example:
-#        class: %kita_blog.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+# src/Kita/BlogBundle/Resources/config/services.yml
 
 services:
     kita_blog.antispam:
         class: Kita\BlogBundle\Antispam\KitaAntispam
-        arguments: [@mailer, %locale%, 10]
+        arguments: ["@mailer", %locale%, 4]

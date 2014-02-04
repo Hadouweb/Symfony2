@@ -5,19 +5,22 @@ namespace Kita\BlogBundle\Antispam;
 class KitaAntispam
 {
     
-    protected $mailer;
+    public $mailer;
     protected $locale;
     protected $nbForSpam;
     
-    public function __contrust(\Swift_Mailer $mailer, $locale, $nbForSpam)
+    public $test;
+    
+    public function __construct(\Swift_Mailer $mailer, $locale, $nbForSpam)
     {
         $this->mailer       = $mailer;
         $this->locale       = $locale;
-        $this->nbForSpam    = (int)$nbForSpam;
+        $this->nbForSpam    = $nbForSpam;
     }
     
     public function isSpam($text)
     {
+        var_dump($this->nbForSpam);
         return ($this->countLinks($text) + $this->countMails($text)) >= $this->nbForSpam;
     }
     

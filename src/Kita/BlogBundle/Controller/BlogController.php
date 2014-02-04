@@ -38,6 +38,8 @@ Class BlogController extends Controller
     
     public function ajouterAction()
     {
+        
+        
         if ($this->get('request')->getMethod() == 'POST' )
         {
             $this->get('session')->getFlashBaf()->add('notice', 'Article bien enregistré');
