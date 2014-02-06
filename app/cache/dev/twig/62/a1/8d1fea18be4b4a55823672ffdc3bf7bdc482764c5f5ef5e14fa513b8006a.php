@@ -46,18 +46,18 @@ class __TwigTemplate_62a18d1fea18be4b4a55823672ffdc3bf7bdc482764c5f5ef5e14fa513b
         ";
         // line 14
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) ? $context["articles"] : $this->getContext($context, "articles")));
+        $context['_seq'] = twig_ensure_traversable($this->getContext($context, "articles"));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
             // line 15
             echo "            <li>
                 <a href=\"";
             // line 16
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("kitablog_voir", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id"))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("kitablog_voir", array("id" => $this->getAttribute($this->getContext($context, "article"), "id"))), "html", null, true);
             echo "\">
                     ";
             // line 17
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "titre"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "article"), "titre"), "html", null, true);
             echo "
                 </a>
             </li>

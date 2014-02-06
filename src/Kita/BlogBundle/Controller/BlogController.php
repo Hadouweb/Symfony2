@@ -4,6 +4,7 @@ namespace Kita\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Kita\BlogBundle\Entity\Article;
 
 Class BlogController extends Controller 
 {
@@ -39,27 +40,38 @@ Class BlogController extends Controller
     public function ajouterAction()
     {
         
+        $em = $this->getDoctrine()->getManager();
         
-        if ($this->get('request')->getMethod() == 'POST' )
-        {
-            $this->get('session')->getFlashBaf()->add('notice', 'Article bien enregistré');
-            
-            return $this->redirect( $this->generateUrl('kitablog_voir', array('id' => 5)) );
+        $article1 = new Article;
+        $article1->setTitre('Mon dernier weekend');
+        $article1->setAuteur('Bibi');
+        $article1->setContenu("C'était vraiment super et on s'est bien amusé.");
+        
+        $em->persist($article1);     
+        
+        $em->flush();
+        
+        if ($this->getRequest()->getMethod() == 'POST') {
+          $this->get('session')->getFlashBag()->add('info', 'Article bien enregistré');
+          return $this->redirect( $this->generateUrl('sdzblog_voir', array('id' => $article->getId())) );
         }
-        
+       
         return $this->render('KitaBlogBundle:Kita:ajouter.html.twig');
     }
     
     public function voirAction($id)
     {
         
-        $article = array(
-            'id'        => 1,
-            'titre'     => 'Mon weekend a Phi Phi Island !',
-            'auteur'    => 'Winzou',
-            'contenu'   => 'Ce weekend était ytrop bien. blabla...',
-            'date'      => new \Datetime()
-        );
+        $repository = $this->getDoctrine()
+                           ->getManager()
+                           ->getRepository('KitaBlogBundle:Article');
+        
+        $article = $repository->find($id);
+        
+        if($article === null)
+        {
+            throw $this->createNotFoundException('Article[id='.$id.'} inexistant.');
+        }
         
         return $this->render('KitaBlogBundle:Kita:voir.html.twig', array(
             'article' => $article
@@ -70,13 +82,16 @@ Class BlogController extends Controller
     public function modifierAction($id)
     {
         
-        $article = array(
-            'id'        => 1,
-            'titre'     => 'Mon weekend a Phi Phi Island !',
-            'auteur'    => 'Winzou',
-            'Contenu'   => 'Ce weekend était trop bien. Blabla...',
-            'date'      => new \Datetime()
-        );
+        $em = $this->getDoctrine()->getManager();      
+        $article = $em->getRepository('KitaBlogBundle:Article');
+        
+        $article = $article->find($id);
+        
+        $article->setAuteur('Nicolas');
+             
+        $em->persist($article);
+        
+        $em->flush();     
                 
         return $this->render('KitaBlogBundle:Kita:modifier.html.twig', array(
             'article' => $article

@@ -42,19 +42,19 @@ class __TwigTemplate_db4389e102c890aa88ff71217d50d24da16068777f86ea18c0ae79a432f
         echo "    
     <h2>";
         // line 11
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "titre"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "article"), "titre"), "html", null, true);
         echo "</h2>
     <i>Par ";
         // line 12
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "auteur"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "article"), "auteur"), "html", null, true);
         echo ", le ";
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "date"), "d/m/Y"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getContext($context, "article"), "date"), "d/m/Y"), "html", null, true);
         echo "</i>
     
     <div class=\"well\">
         ";
         // line 15
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "contenu"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "article"), "contenu"), "html", null, true);
         echo "
     </div>
     
@@ -68,14 +68,14 @@ class __TwigTemplate_db4389e102c890aa88ff71217d50d24da16068777f86ea18c0ae79a432f
         </a>
         <a href=\"";
         // line 23
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("kitablog_modifier", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id"))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("kitablog_modifier", array("id" => $this->getAttribute($this->getContext($context, "article"), "id"))), "html", null, true);
         echo "\" class=\"btn\">
             <i class=\"icont-edit\"></i>
             Modifier l'article
         </a>
         <a href=\"";
         // line 27
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("kitablog_supprimer", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id"))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("kitablog_supprimer", array("id" => $this->getAttribute($this->getContext($context, "article"), "id"))), "html", null, true);
         echo "\" class=\"btn\">
             <i class=\"icon-trash\"></i>
             Supprimer l'article
