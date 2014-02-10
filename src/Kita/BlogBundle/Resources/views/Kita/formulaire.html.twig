@@ -2,6 +2,40 @@
 
 <h3>Formulaire d'article</h3>
 
-<div class="well">
-    Ici se trouvera le formulaire.
+    <div class="well">
+        <form action="{{ path('kitablog_ajouter') }}" method="post" {{ form_enctype(form) }}>
+
+        {# Les erreurs générales du formulaire. #}
+        {{ form_errors(form) }}
+
+        <div>
+          {# Génération du label. #}
+          {{ form_label(form.titre, "Titre de l'article") }}
+
+          {# Affichage des erreurs pour ce champ précis. #}
+          {{ form_errors(form.titre) }}
+
+          {# Génération de l'input. #}
+          {{ form_widget(form.titre) }}
+        </div>
+
+        {# Idem pour un autre champ. #}
+        <div>
+          {{ form_label(form.contenu, "Contenu de l'article") }}
+          {{ form_errors(form.contenu) }}
+          {{ form_widget(form.contenu) }}
+        </div>
+
+        {# Génération des champs pas encore écrits.
+           Dans cet exemple, ce serait « date », « auteur » et « publication »,
+           mais aussi le champ CSRF (géré automatiquement par Symfony !)
+           et tous les champs cachés (type « hidden »). #}
+        {{ form_rest(form) }}
+            
+        <br />
+        <input class="btn btn-primary" type="submit" value="Envoyer" />
+            
+        </form>
+    </div>
+    
 </div>

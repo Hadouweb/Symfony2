@@ -1,33 +1,28 @@
-{# src/Sdz/BlogBundle/Resources/views/Kita/voir.html.twig #}
+{# src/Kita/BlogBundle/Resources/views/Blog/voir.html.twig #}
 
 {% extends "KitaBlogBundle::layout.html.twig" %}
 
 {% block title %}
-    Lecture d'un article - {{ parent() }}
+  Lecture d'un article - {{ parent() }}
 {% endblock %}
-    
+
 {% block kitablog_body %}
-    
-    <h2>{{ article.titre }}</h2>
-    <i>Par {{ article.auteur }}, le {{ article.date|date('d/m/Y') }}</i>
-    
-    <div class="well">
-        {{ article.contenu }}
-    </div>
-    
-    <p>
-        <a rhef="{{ path('kitablog_accueil') }}" class="btn">
-            <i class="icont-chevron-left"></i>
-            Retour à la liste
-        </a>
-        <a href="{{ path('kitablog_modifier', {'id': article.id}) }}" class="btn">
-            <i class="icont-edit"></i>
-            Modifier l'article
-        </a>
-        <a href="{{ path('kitablog_supprimer', {'id': article.id}) }}" class="btn">
-            <i class="icon-trash"></i>
-            Supprimer l'article
-        </a>
-    </p>
-    
+
+  {% include "KitaBlogBundle:Kita:article.html.twig" %}
+
+  <p>
+    <a href="{{ path('kitablog_accueil') }}" class="btn">
+      <i class="icon-chevron-left"></i>
+      Retour à la liste
+    </a>
+    <a href="{{ path('kitablog_modifier', {'id': article.id}) }}" class="btn">
+      <i class="icon-edit"></i>
+      Modifier l'article
+    </a>
+    <a href="{{ path('kitablog_supprimer', {'id': article.id}) }}" class="btn">
+      <i class="icon-trash"></i>
+      Supprimer l'article
+    </a>
+  </p>
+
 {% endblock %}

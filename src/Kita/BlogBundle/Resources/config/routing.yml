@@ -5,10 +5,8 @@ kitablog_accueil:
     page: \d*
   
 kitablog_voir:
-  path: /article/{id}
+  path: /article/{slug}
   defaults: { _controller: KitaBlogBundle:Blog:voir }
-  requirements:
-    id: \d*
 
 kitablog_ajouter:
   path: /ajouter
@@ -26,4 +24,6 @@ kitablog_modifier:
   requirements:
     id: \d*
 
-  
+kitablog_test:
+  path: /test
+  defaults: { _controller: KitaBlogBundle:Blog:test }

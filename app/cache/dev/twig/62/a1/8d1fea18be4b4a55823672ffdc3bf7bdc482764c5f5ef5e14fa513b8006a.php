@@ -48,32 +48,76 @@ class __TwigTemplate_62a18d1fea18be4b4a55823672ffdc3bf7bdc482764c5f5ef5e14fa513b
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "articles"));
         $context['_iterated'] = false;
+        $context['loop'] = array(
+          'parent' => $context['_parent'],
+          'index0' => 0,
+          'index'  => 1,
+          'first'  => true,
+        );
+        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof Countable)) {
+            $length = count($context['_seq']);
+            $context['loop']['revindex0'] = $length - 1;
+            $context['loop']['revindex'] = $length;
+            $context['loop']['length'] = $length;
+            $context['loop']['last'] = 1 === $length;
+        }
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
             // line 15
-            echo "            <li>
-                <a href=\"";
+            echo "            ";
+            $this->env->loadTemplate("KitaBlogBundle:Kita:article.html.twig")->display(array_merge($context, array("accueil" => true)));
             // line 16
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("kitablog_voir", array("id" => $this->getAttribute($this->getContext($context, "article"), "id"))), "html", null, true);
-            echo "\">
-                    ";
-            // line 17
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "article"), "titre"), "html", null, true);
-            echo "
-                </a>
-            </li>
+            echo "            <hr />
         ";
             $context['_iterated'] = true;
+            ++$context['loop']['index0'];
+            ++$context['loop']['index'];
+            $context['loop']['first'] = false;
+            if (isset($context['loop']['length'])) {
+                --$context['loop']['revindex0'];
+                --$context['loop']['revindex'];
+                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+            }
         }
         if (!$context['_iterated']) {
-            // line 21
-            echo "            <li>Pas (encore !) d'articles</li>
+            // line 18
+            echo "            <p>Par 'encore !) d'articles</p>
         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 23
+        // line 20
         echo "    </ul>
+    
+    <div class=\"pagination\">
+        <ul>
+          ";
+        // line 25
+        echo "          ";
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable(range(1, $this->getContext($context, "nombrePage")));
+        foreach ($context['_seq'] as $context["_key"] => $context["p"]) {
+            // line 26
+            echo "            <li";
+            if (($this->getContext($context, "p") == $this->getContext($context, "page"))) {
+                echo " class=\"active\"";
+            }
+            echo ">
+              <a href=\"";
+            // line 27
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("kitablog_accueil", array("page" => $this->getContext($context, "p"))), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, $this->getContext($context, "p"), "html", null, true);
+            echo "</a>
+            </li>
+          ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['p'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 30
+        echo "        </ul>
+    </div>
     
 ";
     }
@@ -90,6 +134,6 @@ class __TwigTemplate_62a18d1fea18be4b4a55823672ffdc3bf7bdc482764c5f5ef5e14fa513b
 
     public function getDebugInfo()
     {
-        return array (  76 => 23,  69 => 21,  60 => 17,  56 => 16,  53 => 15,  48 => 14,  42 => 10,  39 => 9,  32 => 6,  29 => 5,);
+        return array (  119 => 30,  108 => 27,  101 => 26,  96 => 25,  90 => 20,  83 => 18,  69 => 16,  66 => 15,  48 => 14,  42 => 10,  39 => 9,  32 => 6,  29 => 5,);
     }
 }

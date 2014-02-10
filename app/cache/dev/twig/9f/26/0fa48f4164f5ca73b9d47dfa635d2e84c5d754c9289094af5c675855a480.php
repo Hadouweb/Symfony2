@@ -57,7 +57,7 @@ class __TwigTemplate_9f260fa48f4164f5ca73b9d47dfa635d2e84c5d754c9289094af5c67585
     <p>
         <a href=\"";
         // line 23
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("kitablog_voir", array("id" => $this->getAttribute($this->getContext($context, "article"), "id"))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("kitablog_voir", array("slug" => $this->getAttribute($this->getContext($context, "article"), "slug"))), "html", null, true);
         echo "\" class=\"btn\">
             <i class=\"icon-chevron-left\"></i>
             Retour à l'archive

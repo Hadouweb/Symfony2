@@ -12,14 +12,22 @@
     
     <ul>
         {% for article in articles %}
-            <li>
-                <a href="{{ path('kitablog_voir', {'id': article.id}) }}">
-                    {{ article.titre }}
-                </a>
-            </li>
+            {% include "KitaBlogBundle:Kita:article.html.twig" with {'accueil': true} %}
+            <hr />
         {% else %}
-            <li>Pas (encore !) d'articles</li>
+            <p>Par 'encore !) d'articles</p>
         {% endfor %}
     </ul>
+    
+    <div class="pagination">
+        <ul>
+          {# On utilise la fonction range(a, b) qui crée un tableau de valeurs entre a et b #}
+          {% for p in range(1, nombrePage) %}
+            <li{% if p == page %} class="active"{% endif %}>
+              <a href="{{ path('kitablog_accueil', {'page': p}) }}">{{ p }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+    </div>
     
 {% endblock %}

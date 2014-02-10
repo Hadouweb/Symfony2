@@ -143,7 +143,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             if (0 === strpos($pathinfo, '/blog/a')) {
                 // kitablog_voir
-                if (0 === strpos($pathinfo, '/blog/article') && preg_match('#^/blog/article/(?P<id>\\d*)$#s', $pathinfo, $matches)) {
+                if (0 === strpos($pathinfo, '/blog/article') && preg_match('#^/blog/article/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'kitablog_voir')), array (  '_controller' => 'Kita\\BlogBundle\\Controller\\BlogController::voirAction',));
                 }
 
@@ -162,6 +162,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             // kitablog_modifier
             if (0 === strpos($pathinfo, '/blog/modifier') && preg_match('#^/blog/modifier/(?P<id>\\d*)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'kitablog_modifier')), array (  '_controller' => 'Kita\\BlogBundle\\Controller\\BlogController::modifierAction',));
+            }
+
+            // kitablog_test
+            if ($pathinfo === '/blog/test') {
+                return array (  '_controller' => 'Kita\\BlogBundle\\Controller\\BlogController::testAction',  '_route' => 'kitablog_test',);
             }
 
         }

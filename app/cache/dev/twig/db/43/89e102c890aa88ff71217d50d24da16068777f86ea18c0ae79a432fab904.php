@@ -29,7 +29,7 @@ class __TwigTemplate_db4389e102c890aa88ff71217d50d24da16068777f86ea18c0ae79a432f
     public function block_title($context, array $blocks = array())
     {
         // line 6
-        echo "    Lecture d'un article - ";
+        echo "  Lecture d'un article - ";
         $this->displayParentBlock("title", $context, $blocks);
         echo "
 ";
@@ -39,49 +39,36 @@ class __TwigTemplate_db4389e102c890aa88ff71217d50d24da16068777f86ea18c0ae79a432f
     public function block_kitablog_body($context, array $blocks = array())
     {
         // line 10
-        echo "    
-    <h2>";
-        // line 11
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "article"), "titre"), "html", null, true);
-        echo "</h2>
-    <i>Par ";
-        // line 12
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "article"), "auteur"), "html", null, true);
-        echo ", le ";
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getContext($context, "article"), "date"), "d/m/Y"), "html", null, true);
-        echo "</i>
-    
-    <div class=\"well\">
-        ";
-        // line 15
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "article"), "contenu"), "html", null, true);
         echo "
-    </div>
-    
-    <p>
-        <a rhef=\"";
-        // line 19
+  ";
+        // line 11
+        $this->env->loadTemplate("KitaBlogBundle:Kita:article.html.twig")->display($context);
+        // line 12
+        echo "
+  <p>
+    <a href=\"";
+        // line 14
         echo $this->env->getExtension('routing')->getPath("kitablog_accueil");
         echo "\" class=\"btn\">
-            <i class=\"icont-chevron-left\"></i>
-            Retour à la liste
-        </a>
-        <a href=\"";
-        // line 23
+      <i class=\"icon-chevron-left\"></i>
+      Retour à la liste
+    </a>
+    <a href=\"";
+        // line 18
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("kitablog_modifier", array("id" => $this->getAttribute($this->getContext($context, "article"), "id"))), "html", null, true);
         echo "\" class=\"btn\">
-            <i class=\"icont-edit\"></i>
-            Modifier l'article
-        </a>
-        <a href=\"";
-        // line 27
+      <i class=\"icon-edit\"></i>
+      Modifier l'article
+    </a>
+    <a href=\"";
+        // line 22
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("kitablog_supprimer", array("id" => $this->getAttribute($this->getContext($context, "article"), "id"))), "html", null, true);
         echo "\" class=\"btn\">
-            <i class=\"icon-trash\"></i>
-            Supprimer l'article
-        </a>
-    </p>
-    
+      <i class=\"icon-trash\"></i>
+      Supprimer l'article
+    </a>
+  </p>
+
 ";
     }
 
@@ -97,6 +84,6 @@ class __TwigTemplate_db4389e102c890aa88ff71217d50d24da16068777f86ea18c0ae79a432f
 
     public function getDebugInfo()
     {
-        return array (  78 => 27,  71 => 23,  64 => 19,  57 => 15,  49 => 12,  45 => 11,  42 => 10,  39 => 9,  32 => 6,  29 => 5,);
+        return array (  65 => 22,  58 => 18,  51 => 14,  47 => 12,  45 => 11,  42 => 10,  39 => 9,  32 => 6,  29 => 5,);
     }
 }
