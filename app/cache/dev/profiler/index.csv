@@ -364,3 +364,15 @@ ae2861,127.0.0.1,GET,http://localhost/Symfony/web/app_dev.php/_fragment?_path=_f
 664c95,::1,GET,http://localhost/Symfony/web/app_dev.php/blog/article/article1,1392041225,
 13b601,127.0.0.1,GET,http://localhost/Symfony/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DKitaBlogBundle%253ABlog%253Amenu,1392041227,39cab5
 39cab5,::1,GET,http://localhost/Symfony/web/app_dev.php/blog/modifier/11,1392041227,
+f0ce30,127.0.0.1,GET,http://localhost/Symfony/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DKitaBlogBundle%253ABlog%253Amenu,1392042584,a80ab6
+a80ab6,::1,GET,http://localhost/Symfony/web/app_dev.php/blog/ajouter,1392042584,
+2f53bc,::1,POST,http://localhost/Symfony/web/app_dev.php/blog/ajouter,1392042592,
+d840db,127.0.0.1,GET,http://localhost/Symfony/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DKitaBlogBundle%253ABlog%253Amenu,1392042593,c708a5
+c708a5,::1,GET,http://localhost/Symfony/web/app_dev.php/blog/article/hjgfhgfh,1392042593,
+e587f1,127.0.0.1,GET,http://localhost/Symfony/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DKitaBlogBundle%253ABlog%253Amenu,1392042598,925b72
+925b72,::1,GET,http://localhost/Symfony/web/app_dev.php/blog/article/article1,1392042598,
+5a07c5,127.0.0.1,GET,http://localhost/Symfony/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DKitaBlogBundle%253ABlog%253Amenu,1392042600,40de64
+40de64,::1,GET,http://localhost/Symfony/web/app_dev.php/blog/modifier/11,1392042600,
+37fcb4,::1,POST,http://localhost/Symfony/web/app_dev.php/blog/modifier/11,1392042604,
+82be0f,127.0.0.1,GET,http://localhost/Symfony/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DKitaBlogBundle%253ABlog%253Amenu,1392042605,5c2bc3
+5c2bc3,::1,GET,http://localhost/Symfony/web/app_dev.php/blog/article/article2-2,1392042605,

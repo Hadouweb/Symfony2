@@ -20,10 +20,8 @@ class __TwigTemplate_f45b6a13ac1c1dc39b7bd9672fb18c96e31e430c0a67743b82007507cd1
 <h3>Formulaire d'article</h3>
 
     <div class=\"well\">
-        <form action=\"";
+        <form action=\"\" method=\"post\" ";
         // line 6
-        echo $this->env->getExtension('routing')->getPath("kitablog_ajouter");
-        echo "\" method=\"post\" ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'enctype');
         echo ">
 
@@ -98,6 +96,6 @@ class __TwigTemplate_f45b6a13ac1c1dc39b7bd9672fb18c96e31e430c0a67743b82007507cd1
 
     public function getDebugInfo()
     {
-        return array (  75 => 33,  69 => 26,  65 => 25,  61 => 24,  58 => 23,  51 => 19,  45 => 16,  39 => 13,  32 => 9,  25 => 6,  19 => 2,);
+        return array (  73 => 33,  67 => 26,  63 => 25,  59 => 24,  56 => 23,  49 => 19,  43 => 16,  37 => 13,  30 => 9,  25 => 6,  19 => 2,);
     }
 }
